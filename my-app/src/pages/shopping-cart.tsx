@@ -1,13 +1,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import LeftArrow from "../../public/icons/LeftArrow";
 import Button from "../components/Buttons/Button";
 import GhostButton from "../components/Buttons/GhostButton";
-import { GetStaticProps } from "next";
 import { roundDecimal } from "../components/Util/utilFunc";
 import { useCart } from "../context/cart/CartProvider";
 import { useRouter } from "next/router";

@@ -7,7 +7,6 @@ import { ProvideAuth } from "../context/AuthContext";
 import "../styles/globals.css";
 import "animate.css";
 import "nprogress/nprogress.css";
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';

@@ -30,7 +30,7 @@ const Input: FC<Props> = ({
     type={type}
     readOnly={readOnly}
     className={`${
-      border !== "" ? border : "border-2 border-gray500"
+      border !== "" ? border : "border-2 border-gray-500"
     } py-2 px-4 outline-none ${extraClass}`}
     name={name}
     placeholder={placeholder}

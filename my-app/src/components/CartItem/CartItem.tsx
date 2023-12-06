@@ -1,10 +1,8 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useCallback, useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
 import BagIcon from "../../../public/icons/BagIcon";
 import Button from "../../components/Buttons/Button";
 import Item from "./Item";
-import LinkButton from "../Buttons/LinkButton";
 import { roundDecimal } from "../Util/utilFunc";
 import { useCart } from "../../context/cart/CartProvider";
 import { useRouter } from "next/router";
@@ -53,7 +51,7 @@ export default function CartItem() {
           <BagIcon extraClass="h-8 w-8 sm:h-6 sm:w-6" />
           {noOfItems > 0 && (
             <span
-              className={`${animate} absolute text-xs -top-3 bg-gray500 text-gray100 py-1 px-2 rounded-full`}
+              className={`${animate} absolute text-xs -top-3 bg-gray-500 text-gray-100 py-1 px-2 rounded-full`}
             >
               {noOfItems}
             </span>

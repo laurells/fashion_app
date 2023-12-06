@@ -1,6 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import TopNav from "./TopNav";
 import WhistlistIcon from "../../../public/icons/WhistlistIcon";
 import UserIcon from "../../../public/icons/UserIcon";

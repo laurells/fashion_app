@@ -1,69 +1,149 @@
-import { useCallback, useEffect, useState } from "react";
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
-
+import Image from "next/image";
+// import { GetStaticProps } from "next";
+// import { useTranslations } from "next-intl";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import Card from "../components/Card/Card";
-import Pagination from "../components/Util/Pagination";
-import useWindowSize from "../components/Util/useWindowSize";
-import { apiProductsType, itemType } from "../context/cart/cart-types";
-import axios from "axios";
+import LeftArrow from "../../public/icons/LeftArrow";
+import Button from "../components/Buttons/Button";
+import GhostButton from "../components/Buttons/GhostButton";
+import { useCart } from "../context/cart/CartProvider";
+import { useWishlist } from "../context/wishlist/WishlistProvider";
 
-type Props = {
-  items: itemType[];
-  searchWord: string;
-};
+// let w = window.innerWidth;
 
-const Search: React.FC<Props> = ({ items, searchWord }) => {
+const Wishlist = () => {
+  const { addOne } = useCart();
+  const { wishlist, deleteWishlistItem, clearWishlist } = useWishlist();
+
+  let subtotal = 0;
 
   return (
     <div>
       {/* ===== Head Section ===== */}
-      <Header title={`Laurels Fashion`} />
+      <Header title={`Wishlist - Laurels Fashion`} />
 
       <main id="main-content">
-        {/* ===== Breadcrumb Section ===== */}
-        <div className="bg-lightgreen h-16 w-full flex items-center">
-          <div className="app-x-padding app-max-width w-full">
-            <div className="breadcrumb">
-              <Link href="/">
-                <a className="text-gray-400">{("home")}</a>
-              </Link>{" "}
-              / <span>{("search results")}</span>
-            </div>
+        {/* ===== Heading & Continue Shopping */}
+        <div className="app-max-width px-4 sm:px-8 md:px-20 w-full border-t-2 border-gray-100">
+          <h1 className="text-2xl sm:text-4xl text-center sm:text-left mt-6 mb-2 animatee__animated animate__bounce">
+            {("Wishlist")}
+          </h1>
+          <div className="mt-6 mb-3">
+            <Link href="/">
+              <a className="inline-block">
+                <LeftArrow size="sm" extraClass="inline-block" />{" "}
+                {("Continue shopping")}
+              </a>
+            </Link>
           </div>
         </div>
 
-        {/* ===== Heading & Filter Section ===== */}
-        <div className="app-x-padding app-max-width w-full mt-8">
-          <h1 className="text-3xl mb-2">
-            {("search results")}: &quot;{searchWord}&quot;
-          </h1>
-          {items.length > 0 && (
-            <div className="flex justify-between mt-6">
-              <span>
-              {`showing results ${items.length}`}
-              </span>
+        {/* ===== Wishlist Table Section ===== */}
+        <div className="app-max-width px-4 sm:px-8 md:px-20 mb-14 flex flex-col lg:flex-row">
+          <div className="h-full w-full">
+            <table className="w-full mb-6">
+              <thead>
+                <tr className="border-t-2 border-b-2 border-gray-200">
+                  <th className="font-normal hidden md:table-cell text-left sm:text-center py-2 xl:w-72">
+                    {("product image")}
+                  </th>
+                  <th className="font-normal hidden md:table-cell text-left sm:text-center py-2 xl:w-72">
+                    {("product name")}
+                  </th>
+                  <th className="font-normal md:hidden text-left sm:text-center py-2 xl:w-72">
+                    {("product details")}
+                  </th>
+                  <th
+                    className={`font-normal py-2 ${
+                      wishlist.length === 0 ? "text-center" : "text-right"
+                    }`}
+                  >
+                    {("unit_price")}
+                  </th>
+                  <th className="font-normal hidden sm:table-cell py-2 max-w-xs">
+                    {("add")}
+                  </th>
+                  <th className="font-normal hidden sm:table-cell py-2 text-right w-10 whitespace-nowrap">
+                    {("remove")}
+                  </th>
+                  <th className="font-normal sm:hidden py-2 text-right w-10">
+                    {("actions")}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {wishlist.length === 0 ? (
+                  <tr className="w-full text-center h-60 border-b-2 border-gray-200">
+                    <td colSpan={5}>{("wishlist is empty")}</td>
+                  </tr>
+                ) : (
+                  wishlist.map((item) => {
+                    subtotal += item.price * item.qty!;
+                    return (
+                      <tr className="border-b-2 border-gray-200" key={item.id}>
+                        <td className="my-3 flex justify-center flex-col items-start sm:items-center">
+                          <Link
+                            href={`/products/${encodeURIComponent(item.id)}`}
+                          >
+                            
+                              <Image
+                                src={item.img1 as string}
+                                alt={item.name}
+                                width={95}
+                                height={128}
+                                className="h-32 xl:mr-4"
+                              />
+                            
+                          </Link>
+                          <span className="text-xs md:hidden">{item.name}</span>
+                        </td>
+                        <td className="text-center hidden md:table-cell">
+                          {item.name}
+                        </td>
+                        <td className="text-right text-gray-400">
+                          $ {item.price}
+                        </td>
+                        <td className="text-center hidden sm:table-cell max-w-xs text-gray-400">
+                          <Button
+                            value={("add to cart")}
+                            extraClass="hidden sm:block m-auto"
+                            onClick={() => addOne!(item)}
+                          />
+                        </td>
+                        <td
+                          className="text-right pl-8"
+                          style={{ minWidth: "3rem" }}
+                        >
+                          <Button
+                            value={("add")}
+                            onClick={() => addOne!(item)}
+                            extraClass="sm:hidden mb-4 whitespace-nowrap"
+                          />
+                          <button
+                            onClick={() => deleteWishlistItem!(item)}
+                            type="button"
+                            className="outline-none text-gray-300 hover:text-gray-500 focus:outline-none text-4xl sm:text-2xl"
+                          >
+                            &#10005;
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
+              </tbody>
+            </table>
+            <div>
+              {/* @ts-ignore */}
+              <GhostButton
+                onClick={clearWishlist}
+                extraClass="w-full sm:w-48 whitespace-nowrap"
+              >
+                {("clear wishlist")}
+              </GhostButton>
             </div>
-          )}
-        </div>
-
-        {/* ===== Main Content Section ===== */}
-        <div className="app-x-padding app-max-width mt-3 mb-14">
-          {items.length < 1 ? (
-            <div className="flex justify-center items-center h-72">
-              {("no_result")}
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-10 sm:gap-y-6 mb-10">
-              {items.map((item) => (
-                <Card key={item.id} item={item} />
-              ))}
-            </div>
-          )}
+          </div>
         </div>
       </main>
 
@@ -73,33 +153,12 @@ const Search: React.FC<Props> = ({ items, searchWord }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({
-  locale,
-  query: { q = "" },
-}) => {
-  const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products/search?q=${q}`
-  );
-  const fetchedProducts: apiProductsType[] = res.data.data.map(
-    (product: apiProductsType) => ({
-      ...product,
-      img1: product.image1,
-      img2: product.image2,
-    })
-  );
+// export const getStaticProps: GetStaticProps = async ({ locale }) => {
+//   return {
+//     props: {
+//       messages: (await import(`../messages/common/${locale}.json`)).default,
+//     },
+//   };
+// };
 
-  let items: apiProductsType[] = [];
-  fetchedProducts.forEach((product: apiProductsType) => {
-    items.push(product);
-  });
-
-  return {
-    props: {
-    //   messages: (await import(`../messages/common/${locale}.json`)).default,
-      items,
-      searchWord: q,
-    },
-  };
-};
-
-export default Search;
+export default Wishlist;

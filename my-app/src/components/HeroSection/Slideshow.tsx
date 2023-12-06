@@ -1,6 +1,5 @@
 
 import Image from "next/image";
-
 import TextButton from "../Buttons/TextButton";
 import styles from "./Hero.module.css";
 

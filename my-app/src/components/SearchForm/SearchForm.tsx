@@ -6,7 +6,6 @@ import { apiProductsType } from "../../context/cart/cart-types";
 import { itemType } from "../../context/wishlist/wishlist-type";
 import Card from "../Card/Card";
 import Loading from "../../../public/icons/Loading";
-import GhostButton from "../Buttons/GhostButton";
 import { useRouter } from "next/router";
 
 export default function SearchForm() {

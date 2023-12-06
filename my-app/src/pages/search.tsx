@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
+// import { useCallback, useEffect, useState } from "react";
+import { GetServerSideProps } from "next";
+//  GetStaticPaths, GetStaticProps
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -7,8 +8,8 @@ import { useTranslations } from "next-intl";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Card from "../components/Card/Card";
-import Pagination from "../components/Util/Pagination";
-import useWindowSize from "../components/Util/useWindowSize";
+// import Pagination from "../components/Util/Pagination";
+// import useWindowSize from "../components/Util/useWindowSize";
 import { apiProductsType, itemType } from "../context/cart/cart-types";
 import axios from "axios";
 

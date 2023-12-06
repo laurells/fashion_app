@@ -1,8 +1,6 @@
 import { FC, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-
 import Heart from "../../../public/icons/Heart";
 import styles from "./Card.module.css";
 import HeartSolid from "../../../public/icons/HeartSolid";

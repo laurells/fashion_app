@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { GetStaticProps } from "next";
+// import { GetStaticProps } from "next";
 import Image from "next/image";
 import axios from "axios";
 import Header from "../components/Header/Header";
@@ -7,7 +7,7 @@ import Footer from "../components/Footer/Footer";
 import Button from "../components/Buttons/Button";
 import Slideshow from "../components/HeroSection/Slideshow";
 import OverlayContainer from "../components/OverlayContainer/OverlayContainer";
-import Card from "../components/Card/Card";
+// import Card from "../components/Card/Card";
 import TestiSlider from "../components/TestiSlider/TestiSlider";
 import { apiProductsType, itemType } from "../context/cart/cart-types";
 import LinkButton from "../components/Buttons/LinkButton";
