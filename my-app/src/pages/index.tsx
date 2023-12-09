@@ -7,7 +7,7 @@ import Footer from "../components/Footer/Footer";
 import Button from "../components/Buttons/Button";
 import Slideshow from "../components/HeroSection/Slideshow";
 import OverlayContainer from "../components/OverlayContainer/OverlayContainer";
-// import Card from "../components/Card/Card";
+import Card from "../components/Card/Card";
 import TestiSlider from "../components/TestiSlider/TestiSlider";
 import { apiProductsType, itemType } from "../context/cart/cart-types";
 import LinkButton from "../components/Buttons/LinkButton";
@@ -23,22 +23,33 @@ const Home: React.FC<Props> = ({ products }) => {
   const [currentItems, setCurrentItems] = useState(products);
   const [isFetching, setIsFetching] = useState(false);
 
-//   useEffect(() => {
-//     if (!isFetching) return;
-//     const fetchData = async () => {
-//       const res = await axios.get(
-//         `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&offset=${currentItems.length}&limit=10`
-//       );
-//       const fetchedProducts = res.data.data.map((product: apiProductsType) => ({
-//         ...product,
-//         img1: product.image1,
-//         img2: product.image2,
-//       }));
-//       setCurrentItems((products) => [...products, ...fetchedProducts]);
-//       setIsFetching(false);
-//     };
-//     fetchData();
-//   }, [isFetching, currentItems.length]);
+  useEffect(() => {
+    if (!isFetching || !Array.isArray(currentItems)) {
+      return;
+    }
+  
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&offset=${currentItems.length}&limit=10`
+        );
+        const fetchedProducts = res.data.data.map((product: apiProductsType) => ({
+          ...product,
+          img1: product.image1,
+          img2: product.image2,
+        }));
+  
+        setCurrentItems((products) => [...products, ...fetchedProducts]);
+        setIsFetching(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setIsFetching(false);
+      }
+    };
+  
+    fetchData();
+  }, [isFetching, currentItems]);
+  
 
   const handleSeemore = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>

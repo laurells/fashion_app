@@ -30,11 +30,11 @@ const Wishlist = () => {
             {("Wishlist")}
           </h1>
           <div className="mt-6 mb-3">
-            <Link href="/">
-              <a className="inline-block">
+            <Link href="/"
+               className="inline-block">
                 <LeftArrow size="sm" extraClass="inline-block" />{" "}
                 {("Continue shopping")}
-              </a>
+              
             </Link>
           </div>
         </div>
@@ -46,29 +46,29 @@ const Wishlist = () => {
               <thead>
                 <tr className="border-t-2 border-b-2 border-gray-200">
                   <th className="font-normal hidden md:table-cell text-left sm:text-center py-2 xl:w-72">
-                    {("product image")}
+                    {("Product Image")}
                   </th>
                   <th className="font-normal hidden md:table-cell text-left sm:text-center py-2 xl:w-72">
-                    {("product name")}
+                    {("Product Name")}
                   </th>
                   <th className="font-normal md:hidden text-left sm:text-center py-2 xl:w-72">
-                    {("product details")}
+                    {("Product Details")}
                   </th>
                   <th
                     className={`font-normal py-2 ${
                       wishlist.length === 0 ? "text-center" : "text-right"
                     }`}
                   >
-                    {("unit_price")}
+                    {("Unit Price")}
                   </th>
                   <th className="font-normal hidden sm:table-cell py-2 max-w-xs">
-                    {("add")}
+                    {("Add")}
                   </th>
                   <th className="font-normal hidden sm:table-cell py-2 text-right w-10 whitespace-nowrap">
-                    {("remove")}
+                    {("Remove")}
                   </th>
                   <th className="font-normal sm:hidden py-2 text-right w-10">
-                    {("actions")}
+                    {("Actions")}
                   </th>
                 </tr>
               </thead>

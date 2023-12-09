@@ -60,7 +60,7 @@ const ProductCategory: React.FC<Props> = ({
           <h3 className="text-4xl mb-2 capitalize">{(category as string)}</h3>
           <div className="flex flex-col-reverse sm:flex-row gap-4 sm:gap-0 justify-between mt-4 sm:mt-6">
             <span>
-            {"showing_from_to " + firstIndex + " to " + (numberOfProducts < lastIndex ? numberOfProducts : lastIndex) + " of " + numberOfProducts}
+            {"Showing from to " + firstIndex + " to " + (numberOfProducts < lastIndex ? numberOfProducts : lastIndex) + " of " + numberOfProducts}
 
             </span>
             {category !== "new-arrivals" && <SortMenu orderby={orderby} />}

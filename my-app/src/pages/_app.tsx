@@ -1,6 +1,8 @@
 import { NextComponentType, NextPageContext } from "next";
 import Router from "next/router";
 import NProgress from "nprogress";
+import dotenv from 'dotenv';
+dotenv.config();
 import { ProvideCart } from "../context/cart/CartProvider";
 import { ProvideWishlist } from "../context/wishlist/WishlistProvider";
 import { ProvideAuth } from "../context/AuthContext";

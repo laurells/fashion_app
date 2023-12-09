@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
 
           <meta property="og:url" content="#" />
           <link rel="canonical" href="#" />
-          <meta property="og:site_name" content="Haru Fashion" />
+          <meta property="og:site_name" content="Laurels Fashion" />
           <meta property="og:description" content={desc} key="og_description" />
           <meta property="og:title" content={title} key="og_title" />
           <meta

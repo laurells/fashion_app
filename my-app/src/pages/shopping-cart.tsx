@@ -73,7 +73,7 @@ const ShoppingCart = () => {
               </thead>
               <tbody>
                 {cart.length === 0 ? (
-                  <tr className="w-full text-center h-60 border-b-2 border-gray200">
+                  <tr className="w-full text-center h-60 border-b-2 border-gray-200">
                     <td colSpan={5}>{("cart_is_empty")}</td>
                   </tr>
                 ) : (
