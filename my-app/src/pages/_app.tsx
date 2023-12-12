@@ -2,6 +2,7 @@ import { NextComponentType, NextPageContext } from "next";
 import Router from "next/router";
 import NProgress from "nprogress";
 import dotenv from 'dotenv';
+import { Fragment } from "react"
 dotenv.config();
 import { ProvideCart } from "../context/cart/CartProvider";
 import { ProvideWishlist } from "../context/wishlist/WishlistProvider";
@@ -30,6 +31,7 @@ const MyApp = ({ Component, pageProps }: AppCustomProps) => {
   const locale = 'en'; // Replace this with your logic to determine the locale
 
   return (
+    <Fragment>
       <ProvideAuth>
         <ProvideWishlist>
           <ProvideCart>
@@ -37,6 +39,7 @@ const MyApp = ({ Component, pageProps }: AppCustomProps) => {
           </ProvideCart>
         </ProvideWishlist>
       </ProvideAuth>
+    </Fragment>
   );
 };
 

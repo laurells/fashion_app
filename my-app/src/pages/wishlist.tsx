@@ -106,7 +106,7 @@ const Wishlist = () => {
                         </td>
                         <td className="text-center hidden sm:table-cell max-w-xs text-gray-400">
                           <Button
-                            value={("add to cart")}
+                            value={("Add to cart")}
                             extraClass="hidden sm:block m-auto"
                             onClick={() => addOne!(item)}
                           />
@@ -116,7 +116,7 @@ const Wishlist = () => {
                           style={{ minWidth: "3rem" }}
                         >
                           <Button
-                            value={("add")}
+                            value={("Add")}
                             onClick={() => addOne!(item)}
                             extraClass="sm:hidden mb-4 whitespace-nowrap"
                           />
@@ -140,7 +140,7 @@ const Wishlist = () => {
                 onClick={clearWishlist}
                 extraClass="w-full sm:w-48 whitespace-nowrap"
               >
-                {("clear wishlist")}
+                {("Clear wishlist")}
               </GhostButton>
             </div>
           </div>
