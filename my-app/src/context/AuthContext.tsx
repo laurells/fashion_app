@@ -80,7 +80,7 @@ function useProvideAuth() {
   ) => {
     try {
       const response = await axios.post(
-        'http://localhost:5050/api/v1/auth/register',
+        `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/auth/register`,
         {
           email,
           fullname,
@@ -121,7 +121,7 @@ function useProvideAuth() {
   const login = async (email: string, password: string) => {
     try {
       const response = await axios.post(
-        `http://localhost:5050/api/v1/auth/login`,
+        `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/auth/login`,
         {
           email,
           password,
@@ -152,7 +152,7 @@ function useProvideAuth() {
   const forgotPassword = async (email: string) => {
     try {
       const response = await axios.post(
-        'http://localhost:5050/api/v1/auth/forgot-password',
+        `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/auth/forgot-password`,
         {
           email,
         }
