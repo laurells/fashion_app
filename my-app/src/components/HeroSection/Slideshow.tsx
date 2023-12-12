@@ -1,17 +1,17 @@
-
 import Image from "next/image";
 import TextButton from "../Buttons/TextButton";
 import styles from "./Hero.module.css";
 
 // swiperjs
 import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 // import Swiper core and required modules
-//@ts-ignore
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper/core";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
-// install Swiper modules
-SwiperCore.use([Pagination, Navigation, Autoplay]);
 
 const sliders = [
   {
@@ -24,16 +24,16 @@ const sliders = [
     titleDown: "",
     rightText: false,
   },
-  {
-    id: 1,
-    image: "/images/curly_hair_girl-1.jpg",
-    imageTablet: "/images/curly_hair_girl-1.jpg",
-    imageMobile: "/images/curly_hair_girl-1.jpg",
-    subtitle: "Spring Revolution",
-    titleUp: "Night Summer",
-    titleDown: "Dresses",
-    rightText: true,
-  },
+  // {
+  //   id: 1,
+  //   image: "/images/curly_hair_whitel-1.jpg",
+  //   imageTablet: "/images/curly_hair_white-1.jpg",
+  //   imageMobile: "/images/curly_hair_white-1.jpg",
+  //   subtitle: "Spring Revolution",
+  //   titleUp: "Night Summer",
+  //   titleDown: "Dresses",
+  //   rightText: true,
+  // },
   {
     id: 3,
     image: "/images/monigote.jpg",
@@ -52,6 +52,7 @@ const Slideshow = () => {
     <>
       <div className="relative -top-20 slide-container w-full z-20">
         <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
           slidesPerView={1}
           spaceBetween={0}
           loop={true}
