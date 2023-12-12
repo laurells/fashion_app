@@ -1,6 +1,5 @@
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
-
 import Button from "../Buttons/Button";
 import Input from "../Input/Input";
 import { useAuth } from "../../context/AuthContext";

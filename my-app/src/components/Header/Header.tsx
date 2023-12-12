@@ -151,7 +151,7 @@ const Header: React.FC<Props> = ({ title }) => {
                     <WhistlistIcon />
                     {noOfWishlist > 0 && (
                       <span
-                        className={`${animate} absolute text-xs -top-3 -right-3 bg-gray-500 text-gray-100 py-1 px-2 rounded-full`}
+                        className={`${animate} absolute text-xs -top-3 -right-3 bg-red-500 text-gray-100 py-1 px-2 rounded-full`}
                       >
                         {noOfWishlist}
                       </span>
