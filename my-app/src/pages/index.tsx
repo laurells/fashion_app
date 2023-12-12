@@ -31,7 +31,7 @@ const Home: React.FC<Props> = ({ products }) => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5050/api/v1/products?order_by=createdAt.desc&offset=${currentItems.length}&limit=10`
+          `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&offset=${currentItems.length}&limit=10`
         );
         const fetchedProducts = res.data.data.map((product: apiProductsType) => ({
           ...product,
@@ -182,7 +182,7 @@ const Home: React.FC<Props> = ({ products }) => {
 export const getStaticProps: GetStaticProps = async () => {
   let products: itemType[] = [];
   const res = await axios.get(
-    'http://localhost:5050/api/v1/products?order_by=createdAt.desc&limit=10'
+    `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&limit=10`
   );
   const fetchedProducts = res.data;
   fetchedProducts.data.forEach((product: apiProductsType) => {

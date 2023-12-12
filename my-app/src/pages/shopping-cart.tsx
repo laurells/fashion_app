@@ -214,11 +214,11 @@ const ShoppingCart = () => {
                 </div>
               </div>
               <div className="flex justify-between py-3">
-                <span>{("grand_total")}</span>
+                <span>{("grand total")}</span>
                 <span>$ {roundDecimal(subtotal + deliFee)}</span>
               </div>
               <Button
-                value={("proceed_to_checkout")}
+                value={("proceed to checkout")}
                 size="xl"
                 extraClass="w-full"
                 onClick={() => router.push(`/checkout`)}

@@ -83,7 +83,7 @@ const ShoppingCart = () => {
 
     const makeOrder = async () => {
       const res = await axios.post(
-        'http://localhost:5050/api/v1/orders',
+        `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/orders`,
         {
           customerId: auth!.user!.id,
           shippingAddress: shippingAddress ? shippingAddress : address,

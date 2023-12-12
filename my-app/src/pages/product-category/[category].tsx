@@ -103,7 +103,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   if (paramCategory !== "new-arrivals") {
     const numberOfProductsResponse = await axios.get(
-      `http://localhost:5050/api/v1/products/count?category=${paramCategory}`
+      `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products/count?category=${paramCategory}`
     );
     numberOfProducts = +numberOfProductsResponse.data.count;
   } else {
@@ -122,8 +122,8 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   const reqUrl =
     paramCategory === "new-arrivals"
-      ? 'http://localhost:5050/api/v1/products?order_by=createdAt.desc&limit=10'
-      : `http://localhost:5050/api/v1/products?order_by=${order_by}&offset=${start}&limit=10&category=${paramCategory}`;
+      ? `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&limit=10`
+      : `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products?order_by=${order_by}&offset=${start}&limit=10&category=${paramCategory}`;
 
   const res = await axios.get(reqUrl);
 
