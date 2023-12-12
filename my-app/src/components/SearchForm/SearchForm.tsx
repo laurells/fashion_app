@@ -33,7 +33,7 @@ export default function SearchForm() {
     if (!isFetching) return;
     const fetchData = async () => {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products/search?q=${searchValue}`
+        `https://fashion-api-delta.vercel.app/api/v1/products/search?q=${searchValue}`
       );
       const fetchedProducts: apiProductsType[] = res.data.data.map(
         (product: apiProductsType) => ({

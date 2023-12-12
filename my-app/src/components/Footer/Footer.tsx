@@ -47,15 +47,17 @@ export default function Footer() {
             <h3 className={styles.footerHead}>Keep in touch</h3>
             <div className={styles.column}>
               <span>
-                address.detail
+                Rivers State
                 <br />
-                address.road
+                Stadium road
                 <br />
-                address.city
+                Port Harcourt
               </span>
-              <span>phone number</span>
+              
+              <span>+2348077591629</span>
+              <span>laurels.echichinwo@stu.cu.edu.ng</span>
               <span>
-                open all days <br />- opening hours
+                open all days <br />- 8:00am to 9:00pm
               </span>
             </div>
           </div>

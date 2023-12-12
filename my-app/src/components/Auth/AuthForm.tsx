@@ -1,6 +1,5 @@
 import { Fragment, useState, FC } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-
 import { useAuth } from "../../context/AuthContext";
 import Button from "../Buttons/Button";
 import Login from "./Login";
@@ -191,16 +190,16 @@ const SuccessModal = ({
       </Dialog.Title>
       <div className="mb-12">
         <div>
-          name - {auth.user?.fullname}
+          Name - {auth.user?.fullname}
         </div>
         <div>
-          email_address - {auth.user?.email}
+          Email Address - {auth.user?.email}
         </div>
         <div>
-          phone - {auth.user?.phone && auth.user?.phone}
+          Phone - {auth.user?.phone && auth.user?.phone}
         </div>
         <div>
-          shipping_address -{" "}
+          Shipping Address - {" "}
           {auth.user?.shippingAddress && auth.user?.shippingAddress}
         </div>
       </div>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
-
 import { useAuth } from "../../context/AuthContext";
 import Button from "../Buttons/Button";
 import Input from "../Input/Input";
@@ -26,9 +25,9 @@ const ForgotPassword: React.FC<Props> = ({
     const forgotPasswordResponse = await auth.forgotPassword!(email);
     console.log(forgotPasswordResponse);
     if (forgotPasswordResponse.success) {
-      setSuccessMsg("login successful");
+      setSuccessMsg("Login Successful!");
     } else {
-      setErrorMsg("incorrect email password");
+      setErrorMsg("Incorrect email or password");
     }
   };
 
@@ -44,7 +43,7 @@ const ForgotPassword: React.FC<Props> = ({
       <form onSubmit={handleSubmit} className="mt-2">
         <Input
           type="email"
-          placeholder={`${("email address")} *`}
+          placeholder={`${("Email Address")} *`}
           name="email"
           required
           extraClass="w-full focus:border-gray-500"
@@ -59,17 +58,17 @@ const ForgotPassword: React.FC<Props> = ({
         )}
         <Button
           type="submit"
-          value={("submit")}
+          value={("Submit")}
           extraClass="w-full text-center text-xl mb-4"
           size="lg"
         />
         <div className="text-center text-gray-400">
-          {("go back to")}{" "}
+          {("Go back to")}{" "}
           <span
             onClick={onLogin}
             className="text-gray-500 focus:outline-none focus:underline cursor-pointer"
           >
-            {("login")}
+            {("Login")}
           </span>
         </div>
       </form>

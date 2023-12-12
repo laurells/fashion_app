@@ -38,7 +38,7 @@ const TopNav = () => {
   const { asPath, locale } = router;
 
   return (
-    <div className="bg-gray-500 text-gray-100 hidden lg:block">
+    <div className="bg-black text-gray-100 hidden lg:block">
       <div className="flex justify-between app-max-width">
         <ul className={`flex ${styles.topLeftMenu}`}>
           <li>

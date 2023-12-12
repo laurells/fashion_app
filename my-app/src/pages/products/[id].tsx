@@ -310,7 +310,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const paramId = params!.id as string;
   const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/products/${paramId}?include=category`
+    `http://localhost:5050/api/v1/products/${paramId}?include=category`
   );
   const fetchedProduct: apiProductsType = res.data.data;
 
@@ -326,7 +326,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   // Might be temporary solution for suggested products
   const randomProductRes = await axios.get(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/products?category=${product.categoryName}`
+    `http://localhost:5050/api/v1/products?category=${product.categoryName}`
   );
   const fetchedProducts: apiProductsType[] = randomProductRes.data.data;
 

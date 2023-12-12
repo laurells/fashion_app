@@ -34,8 +34,7 @@ const Card: FC<Props> = ({ item }) => {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        <Link href={itemLink}
-          
+        <Link href={itemLink}          
             tabIndex={-1}
             onMouseOver={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}

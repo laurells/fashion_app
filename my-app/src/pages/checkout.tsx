@@ -83,7 +83,7 @@ const ShoppingCart = () => {
 
     const makeOrder = async () => {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/orders`,
+        'http://localhost:5050/api/v1/orders',
         {
           customerId: auth!.user!.id,
           shippingAddress: shippingAddress ? shippingAddress : address,
@@ -100,7 +100,7 @@ const ShoppingCart = () => {
         clearCart!();
         setIsOrdering(false);
       } else {
-        setOrderError("error_occurs");
+        setOrderError("An error occured");
       }
     };
     if (auth.user) makeOrder();
@@ -164,7 +164,7 @@ const ShoppingCart = () => {
         {/* ===== Heading & Continue Shopping */}
         <div className="app-max-width px-4 sm:px-8 md:px-20 w-full border-t-2 border-gray-100">
           <h1 className="text-2xl sm:text-4xl text-center sm:text-left mt-6 mb-2 animatee__animated animate__bounce">
-            {("checkout")}
+            {("Checkout")}
           </h1>
         </div>
 
@@ -280,13 +280,13 @@ const ShoppingCart = () => {
                 ></label>
               </div>
               <label htmlFor="toggle" className="text-xs text-gray-700">
-                {("different shipping address")}
+                {("Different shipping address")}
               </label>
 
               {diffAddr && (
                 <div className="my-4">
                   <label htmlFor="shipping_address" className="text-lg">
-                    {("shipping address")}
+                    {("Shipping address")}
                   </label>
                   <textarea
                     id="shipping_address"
@@ -502,13 +502,13 @@ const ShoppingCart = () => {
                       htmlFor="send-email-toggle"
                       className="text-xs text-gray-700"
                     >
-                      {("send order email")}
+                      {("Send order email")}
                     </label>
                   </div>
                 </div>
 
                 <Button
-                  value={("place order")}
+                  value={("Place order")}
                   size="xl"
                   extraClass={`w-full`}
                   onClick={() => setIsOrdering(true)}
@@ -525,14 +525,14 @@ const ShoppingCart = () => {
           </div>
         ) : (
           <div className="app-max-width px-4 sm:px-8 md:px-20 mb-14 mt-6">
-            <div className="text-gray-400 text-base">{("thank you note")}</div>
+            <div className="text-gray-400 text-base">{("Thank you for shopping with us!")}</div>
 
             <div className="flex flex-col md:flex-row">
               <div className="h-full w-full md:w-1/2 mt-2 lg:mt-4">
                 <div className="border border-gray-500 p-6 divide-y-2 divide-gray-200">
                   <div className="flex justify-between">
                     <span className="text-base uppercase mb-3">
-                      {("order id")}
+                      {("Order id")}
                     </span>
                     <span className="text-base uppercase mb-3">
                       {completedOrder.orderNumber}
@@ -584,34 +584,34 @@ const ShoppingCart = () => {
 
               <div className="h-full w-full md:w-1/2 md:ml-8 mt-4 md:mt-2 lg:mt-4">
                 <div>
-                  {("your_order_received")}
+                  {("Your order has been received!")}
                   {completedOrder.paymentType === "BANK_TRANSFER" &&
-                    ("bank_transfer_note")}
+                    ("Bank transfer completed")}
                   {completedOrder.paymentType === "CASH_ON_DELIVERY" &&
                     completedOrder.deliveryType !== "STORE_PICKUP" &&
-                    ("cash_delivery_note")}
+                    (" Cash delivered")}
                   {completedOrder.deliveryType === "STORE_PICKUP" &&
-                    ("store_pickup_note")}
-                  {("thank_you_for_purchasing")}
+                    (" Pick up your delivery at our store.")}
+                  {(" Thank you")}
                 </div>
 
                 {completedOrder.paymentType === "BANK_TRANSFER" ? (
                   <div className="mt-6">
                     <h2 className="text-xl font-bold">
-                      {("our_banking_details")}
+                      {("our banking details")}
                     </h2>
-                    <span className="uppercase block my-1">Sat Naing :</span>
+                    <span className="uppercase block my-1">Laurels Echichinwo :</span>
 
                     <div className="flex justify-between w-full xl:w-1/2">
-                      <span className="text-sm font-bold">AYA Bank</span>
-                      <span className="text-base">20012345678</span>
+                      <span className="text-sm font-bold">Zenith Bank</span>
+                      <span className="text-base">0012345678</span>
                     </div>
                     <div className="flex justify-between w-full xl:w-1/2">
-                      <span className="text-sm font-bold">CB Bank</span>
-                      <span className="text-base">0010123456780959</span>
+                      <span className="text-sm font-bold">UBA Bank</span>
+                      <span className="text-base">23456780959</span>
                     </div>
                     <div className="flex justify-between w-full xl:w-1/2">
-                      <span className="text-sm font-bold">KPay</span>
+                      <span className="text-sm font-bold">OPay</span>
                       <span className="text-base">095096051</span>
                     </div>
                   </div>

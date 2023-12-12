@@ -19,7 +19,9 @@ html {
   .swiper-button-next::after {
     margin-right: 5rem;
   }
-  
+  /* body {
+    font-family: 'Rubik', sans-serif;
+  } */
   @media only screen and (max-width: 769px) {
     .swiper-button-prev::after {
       margin-left: 1rem;

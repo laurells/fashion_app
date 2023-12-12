@@ -103,7 +103,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   if (paramCategory !== "new-arrivals") {
     const numberOfProductsResponse = await axios.get(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/products/count?category=${paramCategory}`
+      `http://localhost:5050/api/v1/products/count?category=${paramCategory}`
     );
     numberOfProducts = +numberOfProductsResponse.data.count;
   } else {
@@ -122,8 +122,8 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   const reqUrl =
     paramCategory === "new-arrivals"
-      ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&limit=10`
-      : `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/products?order_by=${order_by}&offset=${start}&limit=10&category=${paramCategory}`;
+      ? 'http://localhost:5050/api/v1/products?order_by=createdAt.desc&limit=10'
+      : `http://localhost:5050/api/v1/products?order_by=${order_by}&offset=${start}&limit=10&category=${paramCategory}`;
 
   const res = await axios.get(reqUrl);
 
@@ -216,7 +216,7 @@ const SortMenu: React.FC<{ orderby: OrderType }> = ({ orderby }) => {
                 "bg-gray-500 text-gray-100"
               }`}
             >
-              {("sort_by_price_desc")}
+              {("sort by price description")}
             </button>
           )}
         </Menu.Item>

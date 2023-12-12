@@ -80,7 +80,7 @@ function useProvideAuth() {
   ) => {
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/auth/register`,
+        'http://localhost:5050/api/v1/auth/register',
         {
           email,
           fullname,
@@ -101,7 +101,7 @@ function useProvideAuth() {
       setUser(user);
       return {
         success: true,
-        message: "register_successful",
+        message: "register successful",
       };
     } catch (err) {
       const errResponse = (err as any).response.data;
@@ -121,7 +121,7 @@ function useProvideAuth() {
   const login = async (email: string, password: string) => {
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/auth/login`,
+        `http://localhost:5050/api/v1/auth/login`,
         {
           email,
           password,
@@ -139,7 +139,7 @@ function useProvideAuth() {
       setUser(user);
       return {
         success: true,
-        message: "login_successful",
+        message: "login successful",
       };
     } catch (err) {
       return {
@@ -152,7 +152,7 @@ function useProvideAuth() {
   const forgotPassword = async (email: string) => {
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/auth/forgot-password`,
+        'http://localhost:5050/api/v1/auth/forgot-password',
         {
           email,
         }
@@ -161,13 +161,13 @@ function useProvideAuth() {
       setUser(user);
       return {
         success: forgotPasswordResponse.success,
-        message: "reset_email_sent",
+        message: "reset email sent",
       };
     } catch (err) {
       console.log(err);
       return {
         success: false,
-        message: "something_went_wrong",
+        message: "something went wrong",
       };
     }
   };

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
-
 import { useAuth } from "../../context/AuthContext";
 import Button from "../Buttons/Button";
 import Input from "../Input/Input";
@@ -28,7 +27,7 @@ const Login: React.FC<Props> = ({
     e.preventDefault();
     const loginResponse = await auth.login!(email, password);
     if (loginResponse.success) {
-      setSuccessMsg("login successful");
+      setSuccessMsg("Login Successful!");
     } else {
       setErrorMsg("Incorrect email or password");
     }
@@ -100,7 +99,7 @@ const Login: React.FC<Props> = ({
             onClick={onRegister}
             className="text-gray-500 focus:outline-none focus:underline cursor-pointer"
           >
-            {("register")}
+            {("Register")}
           </span>
         </div>
       </form>

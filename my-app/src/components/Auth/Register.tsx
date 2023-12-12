@@ -63,7 +63,7 @@ const Register: React.FC<Props> = ({
           name="name"
           required
           extraClass="w-full focus:border-gray-500"
-          border="border-2 border-gray300 mb-4"
+          border="border-2 border-gray-300 mb-4"
           onChange={(e) => setName((e.target as HTMLInputElement).value)}
           value={name}
         />
