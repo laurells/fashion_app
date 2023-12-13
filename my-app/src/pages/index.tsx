@@ -136,7 +136,7 @@ const Home: React.FC<Props> = ({ products }) => {
         </section>
 
         {/* ===== Testimonial Section ===== */}
-        <section className="w-full hidden h-full py-16 md:flex flex-col items-center bg-lightgreen">
+        <section className="w-full hidden h-full py-16 md:flex flex-col items-center bg-amber-100">
           <h2 className="text-3xl">Testimonial</h2>
           <TestiSlider />
         </section>
@@ -155,6 +155,7 @@ const Home: React.FC<Props> = ({ products }) => {
             <Button
               value={!isFetching ? "See more" : "loading"}
               onClick={handleSeemore}
+              
             />
           </div>
         </section>

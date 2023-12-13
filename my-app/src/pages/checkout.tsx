@@ -305,7 +305,7 @@ const ShoppingCart = () => {
 
               {!auth.user && (
                 <div className="text-sm text-gray-400 mt-8 leading-6">
-                  {("form_note")}
+                  {("form note")}
                 </div>
               )}
             </div>
@@ -371,7 +371,7 @@ const ShoppingCart = () => {
                           // defaultChecked
                         />{" "}
                         <label htmlFor="ygn" className="cursor-pointer">
-                          {("within yangon")}
+                          {("within Lagos")}
                         </label>
                       </div>
                       <span>$ 2.00</span>
@@ -397,7 +397,7 @@ const ShoppingCart = () => {
 
                 <div>
                   <div className="flex justify-between py-3">
-                    <span>{("grand_total")}</span>
+                    <span>{("Grand total")}</span>
                     <span>$ {roundDecimal(+subtotal + deliFee)}</span>
                   </div>
 
@@ -407,7 +407,7 @@ const ShoppingCart = () => {
                       className="relative flex flex-col bg-white p-5 rounded-lg shadow-md border border-gray-300 cursor-pointer"
                     >
                       <span className="font-semibold text-gray-500 text-base leading-tight capitalize">
-                        {("cash on delivery")}
+                        {("Cash on delivery")}
                       </span>
                       <input
                         type="radio"
@@ -446,11 +446,11 @@ const ShoppingCart = () => {
                       className="relative flex flex-col bg-white p-5 rounded-lg shadow-md border border-gray-300 cursor-pointer"
                     >
                       <span className="font-semibold text-gray-500 leading-tight capitalize">
-                        {("bank transfer")}
+                        {("Bank transfer")}
                       </span>
-                      <span className="text-gray400 text-sm mt-1">
+                      {/* <span className="text-gray400 text-sm mt-1">
                         {("bank transfer desc")}
-                      </span>
+                      </span> */}
                       <input
                         type="radio"
                         name="plan"
