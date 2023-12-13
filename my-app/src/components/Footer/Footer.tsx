@@ -14,19 +14,19 @@ export default function Footer() {
           <div>
             <h3 className={styles.footerHead}>Company</h3>
             <div className={styles.column}>
-              <Link href="example">About us</Link>
-              <Link href="example">Contact us</Link>
-              <Link href="example">Store location</Link>
-              <Link href="example">Careers</Link>
+              <Link href="#">About us</Link>
+              <Link href="#">Contact us</Link>
+              <Link href="#">Store location</Link>
+              <Link href="#">Careers</Link>
             </div>
           </div>
           <div>
             <h3 className={styles.footerHead}>Help</h3>
             <div className={styles.column}>
-              <Link href="example">Order tracking</Link>
-              <Link href="example">FAQs</Link>
-              <Link href="example">Privacy policy</Link>
-              <Link href="example">Terms conditions</Link>
+              <Link href="#">Order tracking</Link>
+              <Link href="#">FAQs</Link>
+              <Link href="#">Privacy policy</Link>
+              <Link href="#">Terms conditions</Link>
             </div>
           </div>
           <div>

@@ -77,13 +77,13 @@ const TestiSlider: FC = () => {
         })}
       </div>
       <span
-        className="absolute top-1/3 left-3 hover:bg-green rounded-full p-2 cursor-pointer outline-none"
+        className="absolute top-1/3 left-3 hover:bg-green-500 rounded-full p-2 cursor-pointer outline-none"
         onClick={handlePrev}
       >
         <LeftArrow />
       </span>
       <span
-        className="absolute top-1/3 right-5 hover:bg-green rounded-full p-2 cursor-pointer outline-none"
+        className="absolute top-1/3 right-5 hover:bg-green-500 rounded-full p-2 cursor-pointer outline-none"
         onClick={handleNext}
       >
         <RightArrow />
